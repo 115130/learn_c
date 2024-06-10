@@ -2,7 +2,7 @@
 //拷贝字符串
 char* str_cpy(char* str,char* str1);
 //连接字符串
-char* str_cat(char* str1,char str2);
+char* str_cat(char* str1,char* str2);
 //比较字符串
 int str_cmp(char* str1,char* str2);
 //查找字符串
@@ -18,24 +18,42 @@ int main(void){
     char str[20] = "abcdefg";
     char* str1="123456";
     printf("%s %s\n",str,str1);
-    str_cpy(str,str1);
+    //str_cpy(str,str1);
+    str_cat(str,str1);
     printf("%s %s\n",str,str1);
     return 0;
 }
-//拷贝字符串
+//拷贝字符串,只需要把字符串末尾带\0也复制进去就行了
 char* str_cpy(char* str,char* str1){
     unsigned long str1_len = str_len(str1);
-    for(int i = 0;i < str1_len;i++){
+    for(unsigned long i = 0;i <= str1_len;i++){
         str[i] = str1[i];
     }
     return str;
 }
 //连接字符串
-char* str_cat(char* str1,char str2){
+char* str_cat(char* str1,char* str2){
+    unsigned long str1_len = str_len(str1);
+    int index = 0;
+    char c = 0;
+    do{
+        c = str2[index];
+        str1[str1_len + index] = c;
+        index++;
+    }while(c != '\0');
     return NULL;
 }
 //比较字符串
 int str_cmp(char* str1,char* str2){
+    unsigned long str1_len = str_len(str1);
+    unsigned long str2_len = str_len(str2);
+    for(unsigned long i = 0;i < str1_len;i++){
+        for(unsigned long j = 0;j < str2_len;j++){
+            if(str1[i] == str2[j]){
+                
+            }
+        }
+    }
     return 0;
 }
 //查找字符串

@@ -10,9 +10,11 @@ int find_str(char* str,char* sub);
 //替换字符串
 char* replace_str(char* str,char* str1);
 //计算字符串长度
-int str_len(char* str);
+unsigned long str_len(char* str);
 
 int main(void){
+    unsigned long len = str_len("123456");
+    printf("%lu",len);
     return 0;
 }
 //拷贝字符串
@@ -36,6 +38,10 @@ char* replace_str(char* str,char* str1){
     return NULL;
 }
 //计算字符串长度
-int str_len(char* str){
-    return 0;
+unsigned long str_len(char* str){
+    unsigned long i = 0;
+    while(*(str + i) != '\0'){
+        i++;
+    }
+    return i;
 }

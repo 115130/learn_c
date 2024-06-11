@@ -12,6 +12,9 @@ typedef struct {
 }list_t;
 
 void list_init(list_t*);
-void add_node(list_t*,int);
+void head_add_node(list_t*,int);
+void tail_add_node(list_t*,int);
+void list_deinit(list_t* l);
+void print_list(list_t* l);
 
 #endif

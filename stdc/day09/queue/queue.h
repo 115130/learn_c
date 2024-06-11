@@ -13,6 +13,7 @@ void queue_init(queue_t* q,int cap);
 void queue_deinit(queue_t* q);
 int queue_full(queue_t* q);
 int queue_empty(queue_t* q);
-
+void queue_push(queue_t* q,int data);
+int queue_pop(queue_t* q);
 
 #endif

@@ -25,3 +25,23 @@ int queue_full(queue_t* q){
 int queue_empty(queue_t* q){
     return q -> size == 0;
 }
+
+void queue_push(queue_t* q,int data){
+    if(q->rear == q -> cap){
+        q -> rear = 0;
+    }
+
+    q -> arr[q -> rear] = data;
+    q -> rear++;
+    q -> size++;
+}
+
+int queue_pop(queue_t* q){
+    if(q->front == q->cap){
+        q -> front = 0;
+    }
+    int data =  q -> arr[q -> front];
+    q -> front++;
+    q -> size--;
+    return data;
+}

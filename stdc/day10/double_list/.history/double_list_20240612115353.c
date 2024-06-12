@@ -1,7 +1,0 @@
-#include<stdio.h>
-#include"double_list.h"
-#include<stdlib.h>
-
-void list_init(list_t* list){
-    list->head.prev=NULL;
-}

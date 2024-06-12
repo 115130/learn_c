@@ -3,4 +3,8 @@
 build
 !/
 !.
-.history
+*history
+*vscode
+CMake*
+*.cmake
+*.tcl

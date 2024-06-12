@@ -1,0 +1,3 @@
+/home/hui/code/2405/stdc/day10/double_list/build/CMakeFiles/double_list.dir
+/home/hui/code/2405/stdc/day10/double_list/build/CMakeFiles/edit_cache.dir
+/home/hui/code/2405/stdc/day10/double_list/build/CMakeFiles/rebuild_cache.dir

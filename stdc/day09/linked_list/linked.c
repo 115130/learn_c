@@ -23,40 +23,71 @@ void list_deinit(list_t* list){
 
 void head_add_node(list_t* list,int data){
     //给节点分配内存和赋值
-    node_t* node = malloc(sizeof(node_t));
-    node -> data = data;
+    node_t* node_new = malloc(sizeof(node_t));
+    node_new -> data = data;
     //先暂存第一个有效节点
-    node_t* first_node = list -> head -> next;
-    //将节点的指向的第一个
-    node -> next = first_node;
+    node_new -> next= list -> head -> next;
     //将头节点指向新建的节点
-    list -> head -> next = node;
+    list -> head -> next = node_new;
 }
+
 void tail_add_node(list_t* list,int data){
     //给新节点分配内存和值
-    node_t* node = malloc(sizeof(node_t));
-    node -> data = data;
+    node_t* node_new = malloc(sizeof(node_t));
+    node_new -> data = data;
     //
     node_t* pnode = list -> head;
-    node_t* tmp;
+    node_t* tmp = pnode -> next;
     //找到最后一个有效节点
     while(tmp -> next != NULL){//此时的tmp是尾节点
         pnode = tmp;
         tmp = pnode->next;
     }
-    pnode -> next = node;
-    node -> next = tmp;
+    pnode -> next = node_new;
+    node_new -> next = tmp;
 }
 
-void print_list(list_t* list){
-    //得到头节点
-    node_t* pnode = list -> head;
-    node_t* tmp = list -> head -> next;
-
-    while(tmp -> next != NULL){ 
-        pnode = tmp;
-        printf("%d ",pnode -> data);
-        tmp = pnode->next;
+void list_add(list_t* list,int data){
+    node_t* node_new = malloc(sizeof(node_t));
+    node_new -> data = data;
+    node_t* first = list -> head;
+    node_t* mid = first -> next;
+    while(mid -> data < data && mid -> next!=NULL){
+        first = mid;
+        mid = mid -> next;
     }
+    first -> next = node_new;
+    node_new -> next = mid;
+}
+
+void list_del(list_t* list,int data){
+    node_t* first = list -> head;
+    node_t* mid = first -> next;
+    while(mid -> data != data){
+        first = mid;
+        mid = mid -> next;
+    }
+    node_t* last = mid -> next; 
+    free(mid);
+    first->next=last;
+}
+
+
+
+
+void list_tarvel(list_t* list){
+    //得到头节点
+
+    for(node_t* pnode = list->head, *tmp = pnode->next;tmp->next!=NULL;tmp = pnode->next){
+        pnode = tmp;
+        printf("%d ",pnode->data);
+
+    }
+    printf("\n");
+    //while(tmp -> next != NULL){ 
+      //  pnode = tmp;
+        //printf("%d ",pnode -> data);
+       // tmp = pnode->next;
+    //}
  
 }

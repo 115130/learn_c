@@ -17,4 +17,5 @@ void add_list_head(list_t* t,int data);
 void add_list_tail(list_t* t,int data);            
 void add_list(list_t* t,int data);
 void list_traver(list_t* list);
+void list_del(list_t* list,int data);
 #endif

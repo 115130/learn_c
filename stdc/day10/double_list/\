@@ -53,35 +53,18 @@ void add_list_tail(list_t* t,int data){
     node_new->next = &(t -> tail);
 }
 
-void list_del(list_t* list,int data){
-    node_t* first = list -> head.next; 
-    node_t* mid = first -> next; 
-    while(mid->data != data && mid->next!=NULL){
-        first = mid;
-        mid = mid -> next;
-    }
-    if(mid!=&(list->tail)){
-        node_t* last = mid->next;
-        free(mid);
-        first->next = last;
-        last->prev = first;
-    }
-
-}
-
 void add_list(list_t* t,int data){
     node_t* node_new = malloc(sizeof(node_t)); 
     node_new->data=data;
 
     node_t* first = &(t -> head);
     node_t* mid = first -> next;
-    while(mid -> data <data && mid->next!=NULL){
+    while(mid -> data < data){
         first = mid;
         mid = mid -> next;
     }
-
-    node_new -> prev = first;
-    node_new -> next = mid;
+    node_new -> prev = first -> prev;
+    node_new -> next = mid -> prev;
     first -> next = node_new;
     mid -> prev = node_new;
 

@@ -7,7 +7,7 @@ void list_init(list_t* list){
     list -> head -> data = 0; 
     list -> tail -> data = 0;
     list -> head -> next = list -> tail;
-    list -> tail ->next = NULL;
+    list -> tail = NULL;
 }
 
 void list_deinit(list_t* list){
@@ -63,15 +63,13 @@ void list_add(list_t* list,int data){
 void list_del(list_t* list,int data){
     node_t* first = list -> head;
     node_t* mid = first -> next;
-    while(mid -> data != data&&mid->next!=NULL){
+    while(mid -> data != data&&mid->next){
         first = mid;
         mid = mid -> next;
     }
-    if(mid!=list->tail){
-        node_t* last = mid -> next; 
-        free(mid);
-        first->next=last;
-    }
+    node_t* last = mid -> next; 
+    free(mid);
+    first->next=last;
 }
 
 

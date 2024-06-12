@@ -16,7 +16,7 @@ int main(void){
     list_add(&list,1);
     list_add(&list,1);
     list_tarvel(&list);
-    list_del(&list,3);
+    list_del(&list,8);
     
     list_tarvel(&list);
     return 0;

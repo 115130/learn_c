@@ -7,7 +7,7 @@ void list_init(list_t* list){
     list -> head -> data = 0; 
     list -> tail -> data = 0;
     list -> head -> next = list -> tail;
-    list -> tail ->next = NULL;
+    list -> tail = NULL;
 }
 
 void list_deinit(list_t* list){

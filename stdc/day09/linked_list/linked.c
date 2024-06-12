@@ -51,13 +51,11 @@ void tail_add_node(list_t* list,int data){
 void print_list(list_t* list){
     //得到头节点
     node_t* pnode = list -> head;
-    //得到第一个有效节点
-    pnode = pnode -> next;
-    node_t* tmp;
+    node_t* tmp = list -> head -> next;
 
     while(tmp -> next != NULL){ 
-        printf("%d ",pnode -> data);
         pnode = tmp;
+        printf("%d ",pnode -> data);
         tmp = pnode->next;
     }
  

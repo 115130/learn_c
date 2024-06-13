@@ -1,5 +1,5 @@
 # 忽略编译后的文件
-*a.out
+*.out
 build
 !/
 !.
@@ -8,3 +8,6 @@ build
 CMake*
 *.cmake
 *.tcl
+*.o
+*.i
+*.s

@@ -45,31 +45,43 @@ void insert(int * arr,int size){
 
     //}
 }
-void quick(int * num,int start,int end){
-    int i = start;//起始下标
-    int j = end;//结束下标
-    int x = num[start];//基准
-    int tmp ;
-    while(i < j){
-        //从头往后找,比基准小就继续
-        while(num[i] < x){
-            i++;
-        }//循环结束,i的位置大于等于基准
+void quick(int * num, int start, int end) {
+    if (start >= end) {
+        return;
+    }
 
-        //从后往前找,比基准大就继续
-        while(num[j]>x){
+    int i = start;
+    int j = end;
+    int x = num[start];
+    int tmp;
+
+    while (i < j) {
+        // 从后往前找,比基准小的元素
+        while (i < j && num[j] >= x) {
             j--;
-        }//j的位置小于等于基准
-        tmp = num [i];
-        num[i] = num[j];
-        num[j] = tmp;
+        }
+
+        // 从前往后找,比基准大的元素
+        while (i < j && num[i] <= x) {
+            i++;
+        }
+
+        // 交换两个元素的位置
+        if (i < j) {
+            tmp = num[i];
+            num[i] = num[j];
+            num[j] = tmp;
+        }
     }
-    if(start < j){
-        quick(num,start,j-1);
-    }
-    if(end > i){
-        quick(num,i + 1,end);
-    }
+
+    // 将基准元素放到正确的位置
+    tmp = num[start];
+    num[start] = num[i];
+    num[i] = tmp;
+
+    // 递归处理左右两个子数组
+    quick(num, start, i - 1);
+    quick(num, i + 1, end);
 }
 void list(int* arr,int size){
      for(int i = 0;i < size;i++){

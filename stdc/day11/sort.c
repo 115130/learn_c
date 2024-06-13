@@ -86,5 +86,28 @@ int sequ_search(int* num,int size,int data){
     return -1;
 }
 int half_search(int* num,int size,int data){
-    
+    int left = 0;//左边界
+    int right = size - 1;//右边界
+    while(left<=right){
+        int mid = (left + right) / 2;
+        if(data < num[mid]){
+            //向左找
+            right = mid -1;
+        }else if(data > num[mid]){
+            left = mid + 1;
+        }else{
+            return mid;
+        }
+    }
 }
+
+
+
+
+
+
+
+
+
+
+

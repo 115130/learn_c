@@ -8,7 +8,8 @@ int main(void){
     //insert(arr,size);
     //select(arr,size);
     //quick(arr,0,size-1);
-    printf("%d",sequ_search(arr,size,50));
+    //printf("%d",sequ_search(arr,size,50));
+    printf("%d",half_search(arr,size,50));
     //list(arr,size);
     return 0;
 }

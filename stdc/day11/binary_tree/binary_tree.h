@@ -14,4 +14,7 @@ typedef struct tree{
 void tree_init(tree_t * t);
 void tree_insert(tree_t* t,int data);
 void tree_del(tree_t* t,int data);
+void tree_first(node_t* n);
+void tree_mid(node_t* n);
+void tree_last(node_t* n);
 #endif

@@ -26,7 +26,7 @@ void tree_insert(tree_t* t,int data){
         p1 = p2;
         if(data>p1 -> data){
             p2 = p2 -> right;
-        }else if(data<p1->data){
+        }else {
             p2 = p2 -> left;
         }
     }while(p2 != NULL);
@@ -36,6 +36,7 @@ void tree_insert(tree_t* t,int data){
     }else if(data < p1->data){
         p1 -> left = new;
     }
+    t->cnt++;
 }
 
 void front(node_t* t){
@@ -54,7 +55,7 @@ void tree_del(tree_t* t,int data){
         pnode = ptar;
         if(data > ptar->data){
             ptar = ptar ->right;    
-        }else if(data < ptar-> data){
+        }else {
             ptar = ptar -> left;
         }
     }
@@ -80,7 +81,7 @@ void tree_del(tree_t* t,int data){
     if(left==NULL && right!=NULL){
         if(ptar -> data < pnode->data){
             pnode->left = right;
-        }else if(ptar -> data > pnode -> data){
+        }else{
             pnode->right = right;
         }
         free(ptar);
@@ -90,7 +91,7 @@ void tree_del(tree_t* t,int data){
     if(left!=NULL && right==NULL){
         if(ptar -> data < pnode->data){
             pnode->left = left;
-        }else if(ptar -> data > pnode -> data){
+        }else {
             pnode->right = left;
         }
         free(ptar);
@@ -111,7 +112,7 @@ void tree_del(tree_t* t,int data){
         //新树挂在父节点的判断
         if(ptar -> data < pnode->data){
             pnode->left = right;
-        }else if(ptar -> data > pnode -> data){
+        }else {
             pnode->right = right;
         }
         free(ptar);
@@ -126,12 +127,14 @@ void tree_first(node_t* n){
     tree_first(n->left);
     tree_first(n->right);
 }
+
 void tree_mid(node_t* n){
     if(n==NULL)return;
     tree_mid(n->left);
     printf("%d ",n->data);
     tree_mid(n->right);
 }
+
 void tree_last(node_t* n){
     if(n==NULL)return;
     tree_last(n->left);

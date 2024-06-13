@@ -1,8 +1,7 @@
 # 忽略编译后的文件
-*
 *.out
 build
-!*/
+!/
 !.
 *history
 *vscode

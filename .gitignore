@@ -5,6 +5,6 @@ build
 !.
 *history
 *vscode
-CMake*
+
 *.cmake
 *.tcl

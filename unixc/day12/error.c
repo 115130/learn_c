@@ -14,7 +14,7 @@ int main(void){
     //free(p);
     //p = NULL;
     FILE* fp = fopen("env","r");
-    if(errno != 0){
+    if(fp == NULL){
         perror("fopen");
         return -1;
     }

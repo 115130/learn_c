@@ -45,44 +45,32 @@ void insert(int * arr,int size){
 
     //}
 }
-void quick(int * num, int start, int end) {
-    if (start >= end) {
-        return;
-    }
 
+
+void quick(int *num, int start, int end) {
     int i = start;
     int j = end;
     int x = num[start];
     int tmp;
 
-    while (i < j) {
-        // 从后往前找,比基准小的元素
-        while (i < j && num[j] >= x) {
-            j--;
-        }
+    while (i <= j) {
+        while (num[i] < x) i++;
+        while (num[j] > x) j--;
 
-        // 从前往后找,比基准大的元素
-        while (i < j && num[i] <= x) {
-            i++;
-        }
-
-        // 交换两个元素的位置
-        if (i < j) {
+        if (i <= j) {
             tmp = num[i];
             num[i] = num[j];
             num[j] = tmp;
+            i++;
+            j--;
         }
     }
 
-    // 将基准元素放到正确的位置
-    tmp = num[start];
-    num[start] = num[i];
-    num[i] = tmp;
-
-    // 递归处理左右两个子数组
-    quick(num, start, i - 1);
-    quick(num, i + 1, end);
+    if (start < j) quick(num, start, j);
+    if (end > i) quick(num, i, end);
 }
+
+
 void list(int* arr,int size){
      for(int i = 0;i < size;i++){
         printf("%d ",arr[i]);   

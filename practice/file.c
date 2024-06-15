@@ -2,8 +2,11 @@
 
 int main(void){
     FILE* file = fopen("./123.txt","r");
-    fprintf(file,"123");
-    int a = fseek(file,SEEK_END,0);
+    if(file == NULL){
+        perror("fopen");
+    }
+    fscanf(file,"123");
+    int a = fseek(file,0,SEEK_END);
     int end = ftell(file);
     rewind(file);
     int start = ftell(file);

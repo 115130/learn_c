@@ -1,4 +1,4 @@
-#include"../cal/math.h"
+#include"math.h"
 
 int main(void){
     int a = 123;

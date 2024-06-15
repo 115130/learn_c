@@ -16,8 +16,8 @@ typedef struct list{
 void list_init(list_t* t){
     t->head = malloc(sizeof(node_t));
     t->tail = malloc(sizeof(node_t));
-    t->head->data=0;
-    t->tail->data=0;
+    t->head->data = 0;
+    t->tail->data = 0;
     t->head->prve = NULL;
     t->tail->next = NULL;
     t->head->next = t->tail;

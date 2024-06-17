@@ -16,8 +16,9 @@ typedef struct list{
 
 void list_init(list_t* list);
 void list_deinit(list_t* list);
-void list_add(list_t* list,node_t test);
-void list_head_add(list_t* list,node_t test);
+void list_add(list_t* list,task_t task);
+void list_head_add(list_t* list,task_t task);
+void list_tail_add(list_t* list,task_t task);
 void printf_task(list_t* list);
 void list_del(list_t* list);
 #endif

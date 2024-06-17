@@ -1,5 +1,3 @@
-
-
 #ifndef __LIST_H__
 #define __LIST_H__
 #ifndef __TASK_LIST_H__

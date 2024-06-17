@@ -7,6 +7,7 @@
     #endif
 
 typedef enum {
+    CREATE,
     FINISHED,
     UNFINISHED,
 }task_status_t; 
@@ -15,6 +16,12 @@ typedef struct task{
     char* task;
     task_status_t task_status;
 }task_t;
+void run();
+void print_task();
+void scnaf_task();
+void del_task();
+void complete_task();
+
 #endif
 
 

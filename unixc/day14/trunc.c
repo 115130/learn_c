@@ -14,6 +14,8 @@ int main(void){
         perror("write");
         return -1;
     }
+    truncate("./trunc.txt",3);
+    truncate("./trunc.txt",5);
     close(fd);
     return 0;
 }

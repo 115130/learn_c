@@ -2,7 +2,12 @@
 #include<unistd.h>
 #include<fcntl.h>
 int main(int argc,char** argv){
+    if(argc<2){
+        fprintf(stderr,"用法:access <文件名>");
+        return -1;
+    }
     printf("文件%s ",argv[1]); 
+
     //判断文件是否存在
     if(access(argv[1],F_OK) == 0){   
         //判断可读不可读

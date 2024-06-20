@@ -11,7 +11,7 @@ int main(int argc,char** argv,char** envp){
     for(char** pp = envp;*pp;pp++){
         printf("%s\n",*pp);
     }
-
+//    execl("./exec",NULL);
 
     return 0;
 }

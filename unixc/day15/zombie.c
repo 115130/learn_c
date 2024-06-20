@@ -6,11 +6,10 @@ int main(void){
         perror("fork");
         return -1;
     }
-
     if(pid == 0){
         return 0;
     }
-    sleep(20);
+    sleep(200);
 
     return 0;
 }

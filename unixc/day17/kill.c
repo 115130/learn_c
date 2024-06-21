@@ -23,7 +23,7 @@ int main(void){
         return 0;
     }
     getchar();
-    if(kill(pid,9) == -1){
+    if(kill(pid,SIGINT) == -1){
         perror("kill");
         return -1;
     }

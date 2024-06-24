@@ -4,9 +4,9 @@
 #include<fcntl.h>
 
 int main(){
-    int fd;
     printf("%d进程,打开管道文件\n",getpid());
-    if((fd = open("./myfifo",O_RDONLY) == -1)){
+    int fd = open("./myfifo",O_RDONLY);
+    if(fd == -1){
        perror("open");
        return -1;
     }

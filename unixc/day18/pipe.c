@@ -6,7 +6,8 @@
 
 int main(void){
 
-    int fd[2] = {};   
+    setbuf(stdout,NULL);
+    int fd[2] ;   
     if(pipe(fd) == -1){
         perror("pipe");
         return -1;
@@ -21,13 +22,13 @@ int main(void){
     }
 
     if(pid == 0){
-         printf("%d进程,关闭读端口\n",getpid());
-        close(fd[0]);
-        printf("%d进程:发送数据\n",getpid());
+        printf("%d进程,关闭写端口\n",getpid());
+        close(fd[1]);
+        printf("%d进程:接受数据\n",getpid());
 
         while(1){
             char buf[64] = {};
-            ssize_t size = read(fd[1],buf,strlen(buf-1));
+            ssize_t size = read(fd[0],buf,sizeof(buf)-1);
             if(size == -1){
                 perror("read");
                 return -1;
@@ -38,7 +39,7 @@ int main(void){
             }
             printf("%s\n",buf);
         }
-        close(fd[1]);
+        close(fd[0]);
         return 0; 
     }
     printf("%d进程,关闭读端口\n",getpid());
@@ -47,7 +48,7 @@ int main(void){
     while(1){
         char buf[64] = {};
         fgets(buf,sizeof(buf),stdin);
-        if(strcmp(buf,"!\n")){
+        if(strcmp(buf,"!\n") == 0){
             break;
         }
         if(write(fd[1],buf,strlen(buf)) == -1){

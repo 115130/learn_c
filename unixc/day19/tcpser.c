@@ -17,9 +17,6 @@ void handle(int sig_handle){
         pid_t pid = waitpid(-1,NULL,WNOHANG);
         if(pid == -1){
             if(errno!=ECHILD){
-                printf("没有子进程了\n");
-                break;
-            }else{
                 perror("wait");
                 exit(1);;
             }

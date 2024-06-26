@@ -8,7 +8,7 @@
 
 int main(void){
 
-    printf("服务器:创建套接字\n");
+    printf("客户端:创建套接字\n");
     int sockfd = socket(AF_INET,SOCK_DGRAM,0);
 
     if(sockfd == -1){
@@ -16,34 +16,37 @@ int main(void){
         return -1;
     }
     
-    printf("服务器:组织地址结构\n");
+    printf("客户端:组织地址结构\n");
     struct sockaddr_in ser;
     ser.sin_family = AF_INET;
     ser.sin_port = htons(7898);//字节序准换
     ser.sin_addr.s_addr = inet_addr("127.0.0.1"); 
-    printf("服务器:绑定套接字和地址结构\n");
-    if(bind(sockfd,(struct sockaddr*)&ser,sizeof(ser))==-1){
-        perror("bind");
-        return -1;
-    }
-    printf("服务器:业务处理\n");
+    
+    printf("客户端:业务处理\n");
     while(1){
-        struct sockaddr_in client_ser;
         char buf[64] = {};
-        unsigned int len = sizeof(client_ser);
+        struct sockaddr_in client_ser;
+        unsigned int len = sizeof(ser);
+        fgets(buf,64,stdin);
+        if(strcmp(buf,"!\n")==0){
+            break;
+        }
+        if(sendto(sockfd,&buf,strlen(buf),0,(struct sockaddr *)&ser,len) == -1){
+            perror("sendto");
+            return -1;
+        }
+
         if(recvfrom(sockfd,&buf,sizeof(buf),0,(struct sockaddr *)&client_ser,&len)==-1){
             perror("recvfrom");
             return -1;
         };
-        printf("服务器接受到%s:%hu的客户端的连接\n",inet_ntoa((struct in_addr)client_ser.sin_addr),ntohs(client_ser.sin_port));
+
+        printf("服务器将buf变成了%s",buf);
         for(int i = 0;i<strlen(buf);i++){
           buf[i] = toupper(buf[i]); 
         }
-        if(sendto(sockfd,&buf,strlen(buf)-1,0,(struct sockaddr *)&client_ser,len) == -1){
-            perror("sendto");
-            return -1;
-        }
     }
+    
 
 
     return 0;

@@ -6,6 +6,7 @@ volatile int g_cn = 0;
 
 pthread_mutex_t mutex= PTHREAD_MUTEX_INITIALIZER;
 
+
 void* add(void* arg){
     pthread_mutex_lock(&mutex);
     for(int i = 0; i<100000;i++){

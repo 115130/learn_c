@@ -11,7 +11,7 @@ typedef struct http_request{
 }HTTP_REQUEST;
 
 typedef struct http_respose{
-  char protocok[32];//协议
+  char protocol[32];//协议
   int status;//状态
   char desc[64];//状态描述
   char type[64];//类型

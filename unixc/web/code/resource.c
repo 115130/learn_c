@@ -5,14 +5,15 @@
 #include <unistd.h>
 #include <sys/syscall.h>
 int search_resource(const char* path){
+    printf("apthhhhh");
     return access(path, R_OK);
 }
 
 int indentify_type(const char* path, char* type){
     //切割字符串,strr 代表逆向
     char* suffix =  strrchr(path,'.');
+    printf("\n\n\n扩展名是%s\n\n\n",suffix);
     if(suffix == NULL){
-        printf("%d.%ld > 无法获取扩展名\n",getpid(),syscall(SYS_gettid));
         return -1;
     }
     for(int i = 0;i < sizeof(s_mime)/sizeof(s_mime[0]);i++){

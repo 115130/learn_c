@@ -1,0 +1,201 @@
+9273.9273 > 忽略大部分信号
+9273.9273设置套接字
+9273.9273组织地址结构
+9273.9273开始绑定地址
+9273.9273开始监听
+9273.9273等待客户端连接
+9273.9273>已接收到127.0.0.1,48894的客户端连接
+9273.9273等待客户端连接
+9273.9280 > 客户机线程开始
+9273.9280 > 接受请求
+129273.9280 > 请求电文:
+GET /1 HTTP/1.1
+Host: 127.0.0.1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 GLS/100.10.9939.100
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/png,image/svg+xml,*/*;q=0.8
+Accept-Language: zh-CN,en-US;q=0.7,en;q=0.3
+Accept-Encoding: gzip, deflate, br, zstd
+DNT: 1
+Sec-GPC: 1
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+Sec-Fetch-Dest: document
+Sec-Fetch-Mode: navigate
+Sec-Fetch-Site: none
+Sec-Fetch-User: ?1
+sec-ch-ua-platform: "Windows"
+sec-ch-ua: "Google Chrome";v="125", "Chromium";v="125", "Not=A?Brand";v="24"
+sec-ch-ua-mobile: ?0
+Priority: u=0, i
+
+
+9273.9280 > 解析请求
+9273.9280> [GET][/1][HTTP/1.1][]
+apthhhhhpath:path:../homepath:../home/404.html9273.9280 > 构造相应:
+9273.9280 > 响应电文:
+HTTP/1.1 404 NOT FOUND
+Server: LEServer 1.0
+Date: Fri 28 Jun 2024 12:58:03
+Content-Type: text/html
+Content-Length: 391
+Connection: close
+
+
+9273.9280 > 发送响应头:
+9273.9280 > 发送响应体:
+9273.9280 > 客户机线程结束
+9273.9273>已接收到127.0.0.1,48896的客户端连接
+9273.9273等待客户端连接
+9273.9285 > 客户机线程开始
+9273.9285 > 接受请求
+129273.9285 > 请求电文:
+GET /404.jpg HTTP/1.1
+Host: 127.0.0.1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 GLS/100.10.9939.100
+Accept: image/avif,image/webp,image/png,image/svg+xml,image/*;q=0.8,*/*;q=0.5
+Accept-Language: zh-CN,en-US;q=0.7,en;q=0.3
+Accept-Encoding: gzip, deflate, br, zstd
+Referer: http://127.0.0.1/1
+DNT: 1
+Sec-GPC: 1
+Connection: keep-alive
+Sec-Fetch-Dest: image
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Site: same-origin
+sec-ch-ua-platform: "Windows"
+sec-ch-ua: "Google Chrome";v="125", "Chromium";v="125", "Not=A?Brand";v="24"
+sec-ch-ua-mobile: ?0
+Priority: u=5, i
+
+
+9273.9285 > 解析请求
+9273.9285> [GET][/404.jpg][HTTP/1.1][]
+apthhhhh
+
+
+扩展名是.jpg
+
+
+扩展名:.jpg,.
+扩展名:.jpg,.*
+扩展名:.jpg,.001
+扩展名:.jpg,.301
+扩展名:.jpg,.323
+扩展名:.jpg,.906
+扩展名:.jpg,.907
+扩展名:.jpg,.acp
+扩展名:.jpg,.ai
+扩展名:.jpg,.aif
+扩展名:.jpg,.aifc
+扩展名:.jpg,.aiff
+扩展名:.jpg,.a11
+扩展名:.jpg,.anv
+扩展名:.jpg,.apk
+扩展名:.jpg,.asa
+扩展名:.jpg,.asf
+扩展名:.jpg,.asp
+扩展名:.jpg,.asx
+扩展名:.jpg,.au
+扩展名:.jpg,.avi
+扩展名:.jpg,.awf
+扩展名:.jpg,.biz
+扩展名:.jpg,.bmp
+扩展名:.jpg,.bot
+扩展名:.jpg,.c4t
+扩展名:.jpg,.c90
+扩展名:.jpg,.cal
+扩展名:.jpg,.cat
+扩展名:.jpg,.cdf
+扩展名:.jpg,.cdr
+扩展名:.jpg,.cel
+扩展名:.jpg,.cer
+扩展名:.jpg,.cg4
+扩展名:.jpg,.cgm
+扩展名:.jpg,.cit
+扩展名:.jpg,.class
+扩展名:.jpg,.cml
+扩展名:.jpg,.cmp
+扩展名:.jpg,.cmx
+扩展名:.jpg,.cot
+扩展名:.jpg,.crl
+扩展名:.jpg,.crt
+扩展名:.jpg,.csi
+扩展名:.jpg,.css
+扩展名:.jpg,.cut
+扩展名:.jpg,.dbf
+扩展名:.jpg,.dbm
+扩展名:.jpg,.dbx
+扩展名:.jpg,.dcd
+扩展名:.jpg,.dcx
+扩展名:.jpg,.der
+扩展名:.jpg,.dgn
+扩展名:.jpg,.dib
+扩展名:.jpg,.dll
+扩展名:.jpg,.doc
+扩展名:.jpg,.dot
+扩展名:.jpg,.drw
+扩展名:.jpg,.dtd
+扩展名:.jpg,.dwf
+扩展名:.jpg,.dwg
+扩展名:.jpg,.dxb
+扩展名:.jpg,.dxf
+扩展名:.jpg,.edn
+扩展名:.jpg,.emf
+扩展名:.jpg,.eml
+扩展名:.jpg,.ent
+扩展名:.jpg,.epi
+扩展名:.jpg,.eps
+扩展名:.jpg,.eps
+扩展名:.jpg,.etd
+扩展名:.jpg,.exe
+扩展名:.jpg,.fax
+扩展名:.jpg,.fdf
+扩展名:.jpg,.fif
+扩展名:.jpg,.fo
+扩展名:.jpg,.frm
+扩展名:.jpg,.g4
+扩展名:.jpg,.gbr
+扩展名:.jpg,.gif
+扩展名:.jpg,.gl2
+扩展名:.jpg,.gp4
+扩展名:.jpg,.hgl
+扩展名:.jpg,.hmr
+扩展名:.jpg,.hpg
+扩展名:.jpg,.hpl
+扩展名:.jpg,.hqx
+扩展名:.jpg,.hrf
+扩展名:.jpg,.hta
+扩展名:.jpg,.htc
+扩展名:.jpg,.htm
+扩展名:.jpg,.html
+扩展名:.jpg,.htt
+扩展名:.jpg,.htx
+扩展名:.jpg,.icb
+扩展名:.jpg,.ico
+扩展名:.jpg,.iff
+扩展名:.jpg,.ig4
+扩展名:.jpg,.igs
+扩展名:.jpg,.iii
+扩展名:.jpg,.img
+扩展名:.jpg,.ins
+扩展名:.jpg,.ipa
+扩展名:.jpg,.isp
+扩展名:.jpg,.IVF
+扩展名:.jpg,.java
+扩展名:.jpg,.jfif
+扩展名:.jpg,.jpe
+扩展名:.jpg,.jpeg
+扩展名:.jpg,.jpg
+9273.9285 > 构造相应:
+9273.9285 > 响应电文:
+HTTP/1.1 200 OK
+Server: LEServer 1.0
+Date: Fri 28 Jun 2024 12:58:03
+Content-Type: image/jpeg
+Content-Length: 54537
+Connection: close
+
+
+9273.9285 > 发送响应头:
+9273.9285 > 发送响应体:
+9273.9285 > 客户机线程结束

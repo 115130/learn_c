@@ -32,7 +32,6 @@ void* client(void* arg){
         char path[PATH_MAX+1];//真实路径
 
         strcpy(root,ca->home);
-
         if(root[strlen(root)-1] == '/'){
             root[strlen(root) -1] = '\0';
         }
@@ -45,8 +44,9 @@ void* client(void* arg){
         if(search_resource(path) == -1){
             hres.status = 404;
             strcpy(hres.desc,"NOT FOUND");
+            strcpy(path,"\0");
             strcat(path,root);
-            strcat(path,"404.html");
+            strcat(path,"/404.html");
         }else if(indentify_type(path, hres.type) == -1){
             hres.status = 404;
             strcpy(hres.desc,"NOT FOUND");

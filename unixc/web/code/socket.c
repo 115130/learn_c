@@ -22,7 +22,7 @@ int init_socket(short port){
   //手动释放port占用
   printf("%d.%ld设置套接字\n",getpid(),syscall(SYS_gettid));
   if(setsockopt(sockfd,SOL_SOCKET ,SO_REUSEPORT , &on,sizeof(on) ) ==-1){
-    perror("");     
+    perror("setsockopt");     
     return -1;
   }
   printf("%d.%ld组织地址结构\n",getpid(),syscall(SYS_gettid));

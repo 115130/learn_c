@@ -16,7 +16,6 @@ void* client(void* arg){
     printf("%d.%ld > 客户机线程开始\n",getpid(),syscall(SYS_gettid));
     while(1){
         printf("%d.%ld > 接受请求\n",getpid(),syscall(SYS_gettid));
-        printf("123");
         char* req = recv_request(ca->conn);
         if(req == NULL){
             break;
@@ -89,7 +88,7 @@ void* client(void* arg){
     }
     close(ca->conn);
     free(ca);
-    printf("%d.%ld > 客户机线程结束",getpid(),syscall(SYS_gettid));
+    printf("%d.%ld > 客户机线程结束\n",getpid(),syscall(SYS_gettid));
     return NULL;
 }
 

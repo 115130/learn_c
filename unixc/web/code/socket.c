@@ -66,14 +66,16 @@ char* recv_request(int conn){
   char* req = NULL;
   while(1){
     char buf[1024] = {};
+    printf("1");
     ssize_t size = recv(conn,buf,sizeof(buf)-1,0);
+    printf("2");
     if(size == -1){
       free(req);
       perror("recv");
       return NULL;
     }
     if(size == 0){
-      printf("%d.%ld客户端关闭套接字",getpid(),syscall(SYS_gettid));
+      printf("%d.%ld客户端关闭套接字\n",getpid(),syscall(SYS_gettid));
       free(req);
       return NULL;
     }

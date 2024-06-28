@@ -16,7 +16,8 @@ int indentify_type(const char* path, char* type){
         return -1;
     }
     for(int i = 0;i < sizeof(s_mime)/sizeof(s_mime[0]);i++){
-        if(strcasecmp(suffix,s_mime[0].suffix) == 0){
+        printf("扩展名:%s,%s\n",suffix,s_mime[i].suffix);
+        if(strcasecmp(suffix,s_mime[i].suffix) == 0){
             strcpy(type,s_mime[i].type);
             return 0;
         }

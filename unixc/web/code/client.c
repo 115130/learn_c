@@ -1,4 +1,5 @@
 #include <linux/limits.h>
+#include <strings.h>
 #include <unistd.h>
 #include <sys/syscall.h>
 #include <sys/stat.h>
@@ -46,9 +47,48 @@ void* client(void* arg){
             strcpy(hres.desc,"NOT FOUND");
             strcat(path,root);
             strcat(path,"404.html");
+        }else if(indentify_type(path, hres.type) == -1){
+            hres.status = 404;
+            strcpy(hres.desc,"NOT FOUND");
+            strcat(path,root);
+            strcat(path,"404.html");
+        }
+        struct stat s;
+        if(stat(path,&s) ==-1){
+            break;
+        }
+        hres.lenght = s.st_size;
+        if (strlen(hreq.connection)) {
+            strcpy(hreq.connection,hres.connction);
+        }else if(strcasecmp(hreq.protocol,"http/1.0") == 0){
+            strcpy(hres.connction,"close");
+        }else{
+            strcpy(hres.connction,"close");
         }
         
+        printf("%d.%ld > 构造相应:\n",getpid(),syscall(SYS_gettid));
+        char head[1024]={};
+        if(construct_head(&hres, head) == -1){
+            break;
+        }
+        
+        printf("%d.%ld > 响应电文:\n%s\n",getpid(),syscall(SYS_gettid),head);
+        printf("%d.%ld > 发送响应头:\n",getpid(),syscall(SYS_gettid));
+        if(send_head(ca->conn, head) == -1){
+            break;
+        }
+        
+        printf("%d.%ld > 发送响应体:\n",getpid(),syscall(SYS_gettid));
+        if(send_body(ca->conn, path) == -1){
+            break;
+        }
+        if(strcasecmp(hres.connction, "close") == 0){
+            break;
+        }
     }
+    close(ca->conn);
+    free(ca);
+    printf("%d.%ld > 客户机线程结束",getpid(),syscall(SYS_gettid));
     return NULL;
 }
 

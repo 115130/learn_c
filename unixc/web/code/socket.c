@@ -20,25 +20,25 @@ int init_socket(short port){
   
   int on  = 1;
   //手动释放port占用
-  printf("%d.%ld设置套接字",getpid(),syscall(SYS_gettid));
+  printf("%d.%ld设置套接字\n",getpid(),syscall(SYS_gettid));
   if(setsockopt(sockfd,SOL_SOCKET ,SO_REUSEPORT , &on,sizeof(on) ) ==-1){
     perror("");     
     return -1;
   }
-  printf("%d.%ld组织地址结构",getpid(),syscall(SYS_gettid));
+  printf("%d.%ld组织地址结构\n",getpid(),syscall(SYS_gettid));
   struct sockaddr_in ser;
   ser.sin_port = htons(port);
   ser.sin_family = AF_INET;
   ser.sin_addr.s_addr = INADDR_ANY;
 
-  printf("%d.%ld开始绑定地址",getpid(),syscall(SYS_gettid));
+  printf("%d.%ld开始绑定地址\n",getpid(),syscall(SYS_gettid));
   if(bind(sockfd, (struct sockaddr*)&ser,sizeof(ser)) == -1){
     perror("bind");
     close(sockfd);
     return -1;
   }
   
-  printf("%d.%ld开始监听",getpid(),syscall(SYS_gettid));
+  printf("%d.%ld开始监听\n",getpid(),syscall(SYS_gettid));
   if(listen(sockfd, 1024) == -1){
     perror("listen");
     return -1;
@@ -48,7 +48,7 @@ int init_socket(short port){
 
 int accept_client(void){
   
-  printf("%d.%ld等待客户端连接",getpid(),syscall(SYS_gettid));
+  printf("%d.%ld等待客户端连接\n",getpid(),syscall(SYS_gettid));
   struct sockaddr_in cli ; 
   socklen_t len;
   int conn = accept(sockfd,(struct sockaddr*)&cli,&len);
@@ -56,7 +56,7 @@ int accept_client(void){
     perror("accept");
     return -1;
   }
-  printf("%d.%ld>已接收到%s,%hu的客户端连接",getpid(),syscall(SYS_gettid),inet_ntoa(cli.sin_addr),ntohs(cli.sin_port));
+  printf("%d.%ld>已接收到%s,%hu的客户端连接\n",getpid(),syscall(SYS_gettid),inet_ntoa(cli.sin_addr),ntohs(cli.sin_port));
   
   return conn;
 }

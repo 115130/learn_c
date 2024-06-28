@@ -1,4 +1,5 @@
 #include "http.h"
+#include <ctype.h>
 #include <strings.h>
 #include <unistd.h>
 #include <sys/syscall.h>
@@ -7,15 +8,15 @@
 #include <string.h>
 #include <time.h>
 
+char* to_upper_case(char *str);
 int parse_http_request(const char* req, HTTP_REQUEST* hreq){
 
   sscanf(req,"%s%s%s",hreq->method,hreq->path,hreq->protocol);
-  //TODO 全大写
   sscanf(req,"Connction: %s\r\n",hreq->connection);
   char* connect = strcasestr(req,"connection:");
     
   printf("%d.%ld> [%s][%s][%s][%s]\n",getpid(),syscall(SYS_gettid),hreq->method,hreq->path,hreq->protocol,hreq->connection);
-  if(strcmp(hreq->method,"get")){
+  if(strcmp(to_upper_case(hreq->method),"GET")){
     printf("%d.%ld>无效的方法\n",getpid(),syscall(SYS_gettid));
     return -1;
   }
@@ -45,4 +46,12 @@ int construct_head(const HTTP_RESPONSE* hrsp, char* rsp){
               hrsp->lenght,
               hrsp->connction);
   return 0;
+}
+char* to_upper_case(char *str) {
+    char * r = str;
+    while (*str) {
+        *str = toupper((unsigned char) *str);
+        str++;
+    }
+    return r;
 }

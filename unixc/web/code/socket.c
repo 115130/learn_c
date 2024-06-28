@@ -3,8 +3,6 @@
 #include "unistd.h"
 #include <sys/socket.h>
 #include "fcntl.h"
-#include "sys/stat.h"
-#include "sys/types.h"
 #include <stdlib.h>
 #include <string.h>
 #include <sys/syscall.h>
@@ -91,28 +89,37 @@ char* recv_request(int conn){
 }
 int send_head(int conn, const char* head){
     if(send(conn,head,strlen(head),0) == -1){
-      perror("send");
+      perror("send_head");
       return -1;
     }
     return 0;
 }
 
+int send_body(int conn, const char* body){
+    int fd = open(body,O_RDONLY);
+    if(fd == -1){
+      perror("fd");
+      return -1;
+    }
+    char buf[1024];
+    ssize_t len;
+    while((len = read(fd,buf,sizeof(buf)-1))>0){
+      if(send(conn,buf,len,0) == -1){
+        perror("sned_body");
+        close(fd);
+        return -1;
+      }
+    }
+    if(len == -1){
+      perror("read");
+      close(fd);
+      return -1;
+    }
+    close(fd);
+    return 0;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+void deinit_socket(){
+  close(sockfd);
+}
 

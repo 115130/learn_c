@@ -12,12 +12,10 @@ int search_resource(const char* path){
 int indentify_type(const char* path, char* type){
     //切割字符串,strr 代表逆向
     char* suffix =  strrchr(path,'.');
-    printf("\n\n\n扩展名是%s\n\n\n",suffix);
     if(suffix == NULL){
         return -1;
     }
     for(int i = 0;i < sizeof(s_mime)/sizeof(s_mime[0]);i++){
-        printf("扩展名:%s,%s\n",suffix,s_mime[i].suffix);
         if(strcasecmp(suffix,s_mime[i].suffix) == 0){
             strcpy(type,s_mime[i].type);
             return 0;

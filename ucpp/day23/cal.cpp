@@ -1,6 +1,6 @@
-int sum ( int a,int b ){
+extern "C" int sum ( int a,int b ){
     return a + b;
 }
-int sub ( int a,int b ){
+extern "C" int sub ( int a,int b ){
     return a - b;
 }

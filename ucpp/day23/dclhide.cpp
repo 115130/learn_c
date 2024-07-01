@@ -1,14 +1,24 @@
 #include <iostream>
-namespace ns {
+#include <ostream>
+namespace ns1 {
     int g_value = 0;
+    int g_other = 0;
 }
+
+namespace ns2 {
+    int g_value = 0;
+    int g_other = 0;
+}
+
 using namespace std;
 int main( void ){
-    int g_value = 0;
-    using namespace ns;
-    g_value = 888;
-    cout << g_value << endl;
-    
-    cout << "ns::g_value:" << ns::g_value << endl;
+    using namespace ns1;
+    using ns2::g_value;
+
+    g_value = 666;
+    cout << ns1::g_value << ns2::g_value << endl;
+
+    g_other = 666;
+    cout << ns1::g_other << ns2::g_other << endl;
     return 0;
 }

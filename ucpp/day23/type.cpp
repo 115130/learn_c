@@ -1,7 +1,5 @@
-#include <ios>
-#include<iostream>
 #include <cstring>
-#include <ostream>
+#include<iostream>
 
 using namespace std;
 void testStruct() {
@@ -36,7 +34,9 @@ void testEnum(){
 }
 
 void testBool(){
-    bool a = 0.0000000003 - 0.0000000003;
+    double t = 0.0003 - 0.0002;
+    t = t - 0.0001; 
+    bool a = t;
     bool b =false;
     cout << boolalpha << "a=" << a <<",b="<<b<<endl;
 }

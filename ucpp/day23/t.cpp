@@ -1,8 +1,2 @@
-#include <iostream>
-int main( void ){
-    std::cout << "dsadsad";
-    while (1) {
-    
-    }
-    return 0;
-}
+void fun3(const int a);
+void fun3(int a);

@@ -14,7 +14,11 @@ void foo( int i,double d ){
 }
 void foo( double d,int i ){
     cout<<"4 foo"<<endl;
-      }
+}
+
+void foo( ... ){
+    
+}
 
 int main(void){
  
